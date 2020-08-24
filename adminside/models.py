@@ -51,19 +51,11 @@ class Travel(models.Model):
     def __str__(self):
         return f'{self.arrival} to {self.departure}'
 
-class Itinerary(models.Model):
-    itinerary_name = models.CharField(max_length=200,default="NULL")
-    day_number = models.PositiveIntegerField()
-    itinerary_description = models.TextField()
-
-    def __str__(self):
-        return f'{self.itinerary_name} day{self.day_number}'
 
 class Package(models.Model):
     ## RelationShip Keys 
     destination = models.OneToOneField(Destination,on_delete=models.CASCADE)
-    accomodation = models.OneToOneField(Accomodation,on_delete=models.CASCADE)
-    itinerary = models.OneToOneField(Itinerary,on_delete=models.CASCADE)
+    accomodation = models.ForeignKey(Accomodation,on_delete=models.CASCADE)
     travel = models.OneToOneField(Travel,on_delete=models.CASCADE)
 
     ## Attributes
@@ -73,7 +65,21 @@ class Package(models.Model):
     inclusive = models.TextField()
     exclusive = models.TextField()
     number_of_days = models.PositiveIntegerField()
+    number_of_times_booked = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return f'{self.package_name}'
 
+
+
+class Itinerary(models.Model):
+    package = models.ForeignKey(Package,on_delete=models.CASCADE,default=1)
+    itinerary_name = models.CharField(max_length=200,default="NULL")
+
+    def __str__(self):
+        return f'{self.itinerary_name}'
+
+class ItineraryDescription(models.Model):
+    itinerary = models.ForeignKey(Itinerary,on_delete=models.CASCADE)
+    day_number = models.PositiveIntegerField()
+    itinerary_description = models.TextField()
