@@ -1,0 +1,151 @@
+.tabbed{
+    width:1000px;
+    margin:50px auto;
+}
+.tabbed>input{
+    display:none;
+}
+.tabbed>label{
+    display:block;
+    float:left;
+    padding:12px 20px;
+    margin-right:5px;
+    cursor:pointer;
+    
+    transition: background-color 0.3s;
+}
+.tabbed>label:hover,
+.tabbed>input:checked+label{
+    background-color:#220c5e;
+    color:white;
+
+}
+.tabs{
+    clear:both;
+    perspective:600px;
+}
+.tabs>div{
+    width:1000px;
+    position:absolute;
+    border:2px solid #220c5e;
+    padding:10px 30px 40px;
+    line-height:1.4em;
+    opacity:0;
+    z-index: 0;
+    transform:rotateY(180deg);
+    transform-origin:top center;
+    transition:opacity 0.3s,transform 1.5s;
+   
+}
+#tab_one:checked ~ .tabs>div:nth-of-type(1),
+#tab_two:checked ~ .tabs>div:nth-of-type(2),
+#tab_three:checked ~ .tabs>div:nth-of-type(3){
+    transform:rotateX(0deg);
+    opacity:1;
+    z-index: 100;
+    
+}
+
+#tab_two:checked ~ .tabs>div:nth-of-type(2),
+#tab_three:checked ~ .tabs>div:nth-of-type(3){
+    
+    background-image:url(../images/kashmir.jpg);
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.card,.card-header
+{
+    background-color:white !important;
+    border:none !important;
+    padding:0!important;
+    margin-bottom: 20px;
+}
+.card{
+    box-shadow: 2px 2px 15px rgb(22, 5, 51);
+}
+.btn-link
+{
+    width:100%;
+    height:60px;
+    color:#000 !important;
+    font-weight:bold !important;
+    text-align:left !important;
+    text-decoration:none!important;
+}
+.card-body{
+    background:#e8eeff;
+}
+.btn-link:after{
+    content:'\2212';
+    width:35px;
+    font-size:25px;
+    text-align:center;
+    border-radius:5px;
+    right:15px;
+    top:11px;
+    position:absolute;
+    background:#e8eeff
+}
+.btn-link.collapsed:after{
+    content:'\002B';
+    width:35px;
+    font-size:25px;
+    text-align:center;
+    border-radius:5px;
+    right:15px;
+    top:11px;
+    position:absolute;
+    background:#e8eeff
+}
+.btn-link:before{
+    content:'';
+    height:25px; 
+    width:25px;
+    position:absolute;
+    background:#fff;
+    z-index:1;
+    transform:rotate(45deg);
+    left:30px;
+    top:46px;
+}
+.booking-form{
+    width:500px;
+    box-shadow: 2px 2px 15px rgb(22, 5, 51);
+    background:#fff;
+    padding:20px;
+    margin:8% auto 0;
+    text-align:center;
+}
+.booking-form h1{
+    color:#1c8adb;
+    margin-bottom:20px;
+}
+.input-box{
+    border-radius:20px;
+    padding:10px;
+    margin:10px 0;
+    width:100%;
+    border:1px solid #999;
+    outline:none;
+}
+.book-btn{
+    color:white;
+    width:100%;
+    padding:10px;
+    border-radius:20px;
+    font-size:15px;
+    margin:10px 0;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    background-color: #220c5e;
+}
+
+input:focus {
+    background-color:#e8eeff;
+   
+    border:2px inset #220c5e;;
+}
+  
