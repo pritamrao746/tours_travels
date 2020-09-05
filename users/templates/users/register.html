@@ -1,0 +1,18 @@
+{% load crispy_forms_tags %}
+<div class="content-section">
+	<form method="POST">
+		{% csrf_token%}
+		<fieldset class="form-group">
+			<legend >Join today</legend>
+			{{form|crispy }}
+		</fieldset>
+		<div class="form-group">
+			<button class="btn btn-outline-info" type ='submit'>Sign Up</button>
+		</div>
+	</form>
+	<div class="border-top pt-3">
+		<small class="text-muted">
+			have an Account ?<a class="ml-2" href="##">log in</a>
+		</small>
+	</div>
+</div>
