@@ -130,3 +130,4 @@ LOGIN_URL='login'
 
 
 
+# base_dir = /home/pritamrao/Desktop/tours_travels
