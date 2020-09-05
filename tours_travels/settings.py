@@ -31,12 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'users.apps.UsersConfig',
-    'crispy_forms',
-    'phone_field',
-
-
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'adminside',
+    'users',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
