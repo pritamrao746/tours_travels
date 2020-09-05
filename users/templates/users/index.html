@@ -1,3 +1,4 @@
+{% load static %}
 <html>
     <head>
         <title>Tours&Travels</title>
@@ -6,13 +7,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="{% static '/css/style.css' %}">
         
     </head>
     <body>
         <section class="header">
             <div class="container">
-                <img src="images/logo.png">
+                <img src="{% static 'images/logo1.png' %}">
                 <button type="button" class="login-btn">Login</button>
             </div>
             <h1>Travel Across The Globe</h1>
@@ -31,7 +32,7 @@
                     <div class="col-md-4">
                         <div class="package-box animate__animated animate__bounce animate__delay-2s">
                             <div class="package-img">
-                                <img src="images/1.jpg">
+                                <img src="{% static 'images/1.jpg' %}">
                                 <div class="price">
                                     <p>₹ 20,000</p>
                                 </div>
@@ -51,7 +52,7 @@
                     <div class="col-md-4">
                         <div class="package-box">
                             <div class="package-img">
-                                <img src="images/1.jpg">
+                                <img src="{% static 'images/1.jpg' %}">
                                 <div class="price">
                                     <p>₹ 20,000</p>
                                 </div>
@@ -71,7 +72,7 @@
                     <div class="col-md-4">
                         <div class="package-box">
                             <div class="package-img">
-                                <img src="images/1.jpg">
+                                <img src="{% static 'images/1.jpg' %}">
                                 <div class="price">
                                     <p>₹ 20,000</p>
                                 </div>
@@ -97,25 +98,25 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="gallery-box">
-                            <img src="images/dest-1.png">
+                            <img src="{% static 'images/dest-1.png' %}">
                             <h4>Kerala</h4>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="gallery-box">
-                            <img src="images/dest-1.png">
+                            <img src="{% static 'images/dest-1.png' %}">
                             <h4>Kerala</h4>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="gallery-box">
-                            <img src="images/dest-1.png">
+                            <img src="{% static 'images/dest-1.png' %}">
                             <h4>Kerala</h4>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="gallery-box">
-                            <img src="images/dest-1.png">
+                            <img src="{% static 'images/dest-1.png' %}">
                             <h4>Kerala</h4>
                         </div>
                     </div>
@@ -126,7 +127,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <img src="images/logo.png" class="footer-logo">
+                        <img src="{% static 'images/logo.png' %}" class="footer-logo">
                         <p>Explore different cities and relax yourself. TRAVELING – IT LEAVES YOU SPEECHLESS, THEN TURNS YOU INTO A STORYTELLER.</p>
                     </div>
                     <div class="col-md-3">
