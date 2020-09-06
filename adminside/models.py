@@ -55,14 +55,14 @@ class Travel(models.Model):
     travelling_mode = models.CharField(max_length=2,choices=TRAVELLING_CHOICES,default=FLIGHT)
 
     def __str__(self):
-        return f'{self.arrival} to {self.departure}'
+        return f'{self.departure} to {self.arrival} | {self.travelling_mode}'
 
 
 class Package(models.Model):
     ## RelationShip Keys 
-    destination = models.OneToOneField(Destination,on_delete=models.CASCADE)
+    destination = models.ForeignKey(Destination,on_delete=models.CASCADE)
     accomodation = models.ForeignKey(Accomodation,on_delete=models.CASCADE)
-    travel = models.OneToOneField(Travel,on_delete=models.CASCADE)
+    travel = models.ForeignKey(Travel,on_delete=models.CASCADE)
 
     ## Attributes
     package_name = models.CharField(max_length=200,default="NULL") # ye dalna
@@ -90,3 +90,7 @@ class ItineraryDescription(models.Model):
     itinerary = models.ForeignKey(Itinerary,on_delete=models.CASCADE)
     day_number = models.PositiveIntegerField()
     itinerary_description = models.TextField()
+    
+
+    def __str__(self):
+        return f'{self.itinerary.itinerary_name} | Day {self.day_number}'
