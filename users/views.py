@@ -26,3 +26,10 @@ def register(request):
 		
 def home(request):
 	return render(request,'users/index.html')
+
+
+def package(request):
+	return render(request,'users/package.html')
+
+def destination(request):
+	return render(request,'users/destination.html')

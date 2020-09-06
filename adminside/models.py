@@ -60,9 +60,9 @@ class Package(models.Model):
     travel = models.OneToOneField(Travel,on_delete=models.CASCADE)
 
     ## Attributes
-    package_name = models.CharField(max_length=200,default="NULL")
+    package_name = models.CharField(max_length=200,default="NULL") # ye dalna
     adult_price = models.IntegerField()
-    child_price = models.IntegerField()
+    child_price = models.IntegerField()   
     inclusive = models.TextField()
     exclusive = models.TextField()
     number_of_days = models.PositiveIntegerField()
