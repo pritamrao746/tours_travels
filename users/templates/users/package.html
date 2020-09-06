@@ -114,7 +114,9 @@
           <h2 style="display:none">Book</h2>
           <div class="booking-form">
             <h1>Booking Details</h1>
-            <form>
+            
+            <form method="POST" action="{% url 'users-bookings' %}">
+              {% csrf_token %}
               <input type="number" class="input-box" name="adults" placeholder="No. of Adults (+12 yrs)">
               <input type="number" class="input-box" name="children" placeholder="No. of Children">
               <input type="number" class="input-box" name="rooms" placeholder="No. of Rooms">
@@ -126,6 +128,7 @@
               </div>
               <button type="submit" class="book-btn">Book</button>
             </form>
+          
           </div>
         </div>
       

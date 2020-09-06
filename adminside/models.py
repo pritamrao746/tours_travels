@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from users.models import UserBookings
 # Create your models here.
 
 class Destination(models.Model):
@@ -63,6 +64,7 @@ class Package(models.Model):
     destination = models.ForeignKey(Destination,on_delete=models.CASCADE)
     accomodation = models.ForeignKey(Accomodation,on_delete=models.CASCADE)
     travel = models.ForeignKey(Travel,on_delete=models.CASCADE)
+    bookings = models.ManyToManyField(User,through=UserBookings)
 
     ## Attributes
     package_name = models.CharField(max_length=200,default="NULL") # ye dalna
