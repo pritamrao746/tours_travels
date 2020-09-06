@@ -56,6 +56,7 @@ def destination(request,id):
 	packs=dest.package_set.all()
 	nights=[]
 	price=[]
+	dtn_image_url_list = []
 	travel=[]
 	
 	for i in packs:
@@ -68,14 +69,37 @@ def destination(request,id):
 			travel.append("Flight")
 		else:
 			travel.append("Bus")
+
+
+		# Getting the small image of a particular package related to some destination
+		destination_img_object = i.destination.destinationimages_set.all()[0] #destination images object
+		img = dtn_image_url_list.append(destination_img_object.small_image.url)
 	
-	packages=zip(packs,nights,price,travel)
+	
+	packages=zip(packs,nights,price,travel,dtn_image_url_list)
 
 
-	context={'dest':dest,'packages':packages}
+	# Images For caraousel purpose
+	images = dest.destinationimages_set.all()[0] #destination images object
+	caraousel1 = images.caraousel1.url
+	caraousel2 = images.caraousel2.url
+	caraousel3 = images.caraousel3.url
+
+
+
+	context={'dest':dest,'packages':packages,'caraousel1':caraousel1,'caraousel2':caraousel2,'caraousel3':caraousel3}
+	
 	return render(request,'users/destination.html',context)
 
 def search(request):
+	name=request.POST.get('search','')
+	name=name.lstrip()
+	name=name.rstrip()
+	dest=Destination.objects.filter(name__icontains=name) | Destination.objects.filter(state__icontains=name) | Destination.objects.filter(city__icontains=name)	
+	print(dest[0].id)
+	return redirect('users-destination', id=dest[0].id)
+	
+
 	try:
 		name=request.POST.get('search','')
 		name=name.lstrip()
@@ -115,6 +139,10 @@ def detail_package(request,package_id):
 		itinerary = Itinerary.objects.get(package=package)
 		itinerary_description = itinerary.itinerarydescription_set.all() # list of itineary days
 
+		# Images
+		images = package.destination.destinationimages_set.all()[0] #destination images object
+		package_image = images.caraousel1.url
+
 		context = {
 				'package':package,
 				'package_name':package_name,
@@ -129,7 +157,8 @@ def detail_package(request,package_id):
 				'price_per_room':price_per_room,
 				'inclusive':inclusive,
 				'exclusive':exclusive,
-				'itinerary_description':itinerary_description
+				'itinerary_description':itinerary_description,
+				'package_image':package_image
 			}
 
 	except:
@@ -137,3 +166,6 @@ def detail_package(request,package_id):
 
 
 	return render(request,'users/package.html',context)
+
+
+	reques.POST[""]
