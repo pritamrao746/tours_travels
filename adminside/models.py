@@ -14,7 +14,11 @@ class Destination(models.Model):
 class DestinationImages(models.Model):
 
     ## Change it to Image Field afterwards
-    image_name = models.CharField(max_length=100)
+    small_image = models.ImageField(default="deault_small.jpeg",upload_to="destination_img")
+    caraousel1 = models.ImageField(default="deault_big.jpeg",upload_to="destination_img")
+    caraousel2 = models.ImageField(default="deault_big.jpeg",upload_to="destination_img")
+    caraousel3 = models.ImageField(default="deault_big.jpeg",upload_to="destination_img")
+    
     destination = models.ForeignKey(Destination,on_delete=models.CASCADE)
 
     def __str__(self):

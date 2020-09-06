@@ -2,8 +2,6 @@ from django.shortcuts import render,redirect
 
 
 from .forms import UserRegisterForm
-
-
 # Create your views here.
 
 def register(request):
@@ -33,3 +31,4 @@ def package(request):
 
 def destination(request):
 	return render(request,'users/destination.html')
+

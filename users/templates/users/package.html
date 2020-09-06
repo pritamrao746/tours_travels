@@ -1,123 +1,196 @@
 {% load static %}
 
 <html>
-    <head>
-        <title>Tours&Travels</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="{% static '/css/style.css' %}">
-        <link rel="stylesheet" href="{% static '/css/pack-style.css' %}">
-        
-    </head>
-    <body>
-        <section class="header">
-            <div class="container">
-                <img src="{% static 'images/logo1.png' %}">
-                <button type="button" class="login-btn">Login</button>
-            </div>
-            <h1>Package Name</h1>
-        </section>
-        <section class="container">
-            <div class="tabbed">
-                <input type="radio" name="tabs" id="tab_one" checked>
-                <label for="tab_one">Overview</label>
-                <input type="radio" name="tabs" id="tab_two" >
-                <label for="tab_two">Itenarary</label>
-                <input type="radio" name="tabs" id="tab_three" >
-                <label for="tab_three">Book Now</label>
-                <div class="tabs">
-                    <div>
-                        <h2>Overview</h2>
-                        <h4>Destination and No.of Days</h4>
-                        <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...</p>
-                        <h4>Travelling Details</h4>
-                        <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...</p>
-                        <h4>Accomodation Details</h4>
-                        <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...</p>
-                        <h4>Inclusive</h4>
-                        <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...</p>
-                        <h4>Exclusive</h4>
-                        <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...</p>
+
+<head>
+  <title>Tours&Travels</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+  <link rel="stylesheet" href="{% static '/css/pack-style.css' %}">
+
+</head>
+
+<body>
+  <section class="header">
+    <div class="container">
+      <img src="{% static 'images/logo1.png' %}">
+      <button type="button" class="login-btn">Login</button>
+    </div>
+    <h1>Package Name</h1>
+  </section>
+  <section class="container">
+    <div class="tabbed">
+      <input type="radio" name="tabs" id="tab_one" checked>
+      <label for="tab_one">Overview</label>
+      <input type="radio" name="tabs" id="tab_two">
+      <label for="tab_two">Itenarary</label>
+      <input type="radio" name="tabs" id="tab_three">
+      <label for="tab_three">Book Now</label>
+      <div class="tabs">
+        <div>
+          <h2>Overview</h2>
+          <h4>Destination and No.of Days</h4>
+          <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order
+            of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white
+            marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
+            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
+            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
+            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
+            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...</p>
+          <h4>Travelling Details</h4>
+          <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order
+            of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white
+            marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
+            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
+            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
+            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
+            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...</p>
+          <h4>Accomodation Details</h4>
+          <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order
+            of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white
+            marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
+            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
+            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
+            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
+            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...</p>
+          <h4>Inclusive</h4>
+          <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order
+            of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white
+            marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
+            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
+            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
+            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
+            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...</p>
+          <h4>Exclusive</h4>
+          <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order
+            of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white
+            marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
+            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
+            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
+            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
+            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
+            ...</p>
+        </div>
+        <div>
+          <h2>Itenarary</h2>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 mt-3">
+                <div class="accordion" id="accordionExample">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                          data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Day 1
+                        </button>
+                      </h2>
                     </div>
-                    <div>
-                        <h2>Itenarary</h2>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 mt-3">
-                                    <div class="accordion" id="accordionExample">
-                                        <div class="card">
-                                          <div class="card-header" id="headingOne">
-                                            <h2 class="mb-0">
-                                              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                               Day 1
-                                              </button>
-                                            </h2>
-                                          </div>
-                                      
-                                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="card">
-                                          <div class="card-header" id="headingTwo">
-                                            <h2 class="mb-0">
-                                              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                               Day 2
-                                              </button>
-                                            </h2>
-                                          </div>
-                                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="card">
-                                          <div class="card-header" id="headingThree">
-                                            <h2 class="mb-0">
-                                              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                Day 3
-                                              </button>
-                                            </h2>
-                                          </div>
-                                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-                               
-                            </div>
-                        </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                      data-parent="#accordionExample">
+                      <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
+                      </div>
                     </div>
-                    <div >
-                        <h2 style="display:none">Book</h2>
-                        <div class="booking-form">
-                            <h1>Booking Details</h1>
-                            <form>
-                                <input type="text" class="input-box" name="from" placeholder="Travelling From">
-                                <input type="number" class="input-box" name="adults" placeholder="No. of Adults (+12 yrs)">
-                                <input type="number" class="input-box" name="children" placeholder="No. of Children">
-                                <input type="number" class="input-box" name="rooms" placeholder="No. of Rooms">
-                                <input type="date" class="input-box" name="date" placeholder="Date of Travel">
-                                <button type="submit" class="book-btn">Book</button>
-                            </form>
-                        </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Day 2
+                        </button>
+                      </h2>
                     </div>
-                    
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                      <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Day 3
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                      data-parent="#accordionExample">
+                      <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+
             </div>
-        </section>
-        
-       
-    </body>
+          </div>
+        </div>
+        <div>
+          <h2 style="display:none">Book</h2>
+          <div class="booking-form">
+            <h1>Booking Details</h1>
+            <form>
+              <input type="text" class="input-box" name="from" placeholder="Travelling From">
+              <input type="number" class="input-box" name="adults" placeholder="No. of Adults (+12 yrs)">
+              <input type="number" class="input-box" name="children" placeholder="No. of Children">
+              <input type="number" class="input-box" name="rooms" placeholder="No. of Rooms">
+              <input type="date" class="input-box" name="date" placeholder="Date of Travel">
+              <button type="submit" class="book-btn">Book</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+</body>
+
 </html>
