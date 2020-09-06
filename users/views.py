@@ -1,6 +1,9 @@
 from django.shortcuts import render,redirect,HttpResponse
+from django.contrib import messages
 from adminside.models import *
 from .forms import UserRegisterForm
+from django.http import HttpResponseRedirect
+from django.http import JsonResponse
 # Create your views here.
 
 def register(request):
@@ -33,23 +36,30 @@ def destination(request,id):
 	id=id
 	dest=Destination.objects.get(id=id)
 	packs=dest.package_set.all()
-	n=packs.count()
 	nights=[]
 	price=[]
 	dtn_image_url_list = []
+	travel=[]
 	
 	for i in packs:
 		nights.append(i.number_of_days-1)
 		price.append(i.adult_price+i.accomodation.price_per_room)
+		mode=i.travel.travelling_mode
+		if(mode=="TN"):
+			travel.append("Train")
+		elif(mode=="FT"):
+			travel.append("Flight")
+		else:
+			travel.append("Bus")
+
 
 		# Getting the small image of a particular package related to some destination
 		destination_img_object = i.destination.destinationimages_set.all()[0] #destination images object
 		img = dtn_image_url_list.append(destination_img_object.small_image.url)
 	
-
-
-	packages=zip(packs,nights,price,dtn_image_url_list)
 	
+	packages=zip(packs,nights,price,travel,dtn_image_url_list)
+
 
 	# Images For caraousel purpose
 	images = dest.destinationimages_set.all()[0] #destination images object
@@ -72,6 +82,17 @@ def search(request):
 	return redirect('users-destination', id=dest[0].id)
 	
 
+	try:
+		name=request.POST.get('search','')
+		name=name.lstrip()
+		name=name.rstrip()
+		dest=Destination.objects.filter(city__icontains=name) | Destination.objects.filter(state__icontains=name) | Destination.objects.filter(city__icontains=name)	
+		print(dest[0].id)
+		return redirect('users-destination', id=dest[0].id)
+	except:
+		messages.error(request, 'No results found for your search request')
+		return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+		
 
 def detail_package(request,package_id):
 
@@ -105,6 +126,7 @@ def detail_package(request,package_id):
 		package_image = images.caraousel1.url
 
 		context = {
+				'package':package,
 				'package_name':package_name,
 				'destination_name':destination_name,
 				'no_of_days':no_of_days,

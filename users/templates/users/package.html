@@ -50,18 +50,22 @@
           
           
           <h4>Travelling Details</h4>
-          <ul>
-            <li>Travelling Mode : {{travel_mode}}</li>
-            <li>Travel Price : {{travel_price}}</li>
-          </ul>
+          <div class="container">
+            <ul>
+              <li>Travelling Mode : {{travel_mode}}</li>
+              <li>Travel Price : ₹ {{travel_price}}</li>
+            </ul>
+          </div>
 
 
           <h4>Accomodation Details</h4>
-          <ul>
-            <li>Hotel Name :{{hotel_name}} </li>
-            <li>Hotel Description : {{hotel_description}}</li>
-            <li>PricePerRoom : {{price_per_room}}</li>
-          </ul>
+          <div class="container">
+            <ul>
+              <li>Hotel Name : {{hotel_name}} </li>
+              <li>Hotel Description : {{hotel_description}}</li>
+              <li>PricePerRoom : ₹ {{price_per_room}}</li>
+            </ul>
+          </div>
 
 
           <h4>Inclusive</h4>
@@ -111,11 +115,15 @@
           <div class="booking-form">
             <h1>Booking Details</h1>
             <form>
-              <input type="text" class="input-box" name="from" placeholder="Travelling From">
               <input type="number" class="input-box" name="adults" placeholder="No. of Adults (+12 yrs)">
               <input type="number" class="input-box" name="children" placeholder="No. of Children">
               <input type="number" class="input-box" name="rooms" placeholder="No. of Rooms">
               <input type="date" class="input-box" name="date" placeholder="Date of Travel">
+              <p><span style="color:red">*</span> Travelling is arranged from {{package.travel.departure}} to {{package.travel.arrival}}</p>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="travel">
+                <label class="form-check-label" for="exampleCheck1">Do you want to include travelling?</label>
+              </div>
               <button type="submit" class="book-btn">Book</button>
             </form>
           </div>
