@@ -36,22 +36,38 @@ def destination(request,id):
 	n=packs.count()
 	nights=[]
 	price=[]
+	dtn_image_url_list = []
 	
 	for i in packs:
 		nights.append(i.number_of_days-1)
 		price.append(i.adult_price+i.accomodation.price_per_room)
-	
-	packages=zip(packs,nights,price)
+
+		# Getting the small image of a particular package related to some destination
+		destination_img_object = i.destination.destinationimages_set.all()[0] #destination images object
+		img = dtn_image_url_list.append(destination_img_object.small_image.url)
 	
 
-	context={'dest':dest,'packages':packages}
+
+	packages=zip(packs,nights,price,dtn_image_url_list)
+	
+
+	# Images For caraousel purpose
+	images = dest.destinationimages_set.all()[0] #destination images object
+	caraousel1 = images.caraousel1.url
+	caraousel2 = images.caraousel2.url
+	caraousel3 = images.caraousel3.url
+
+
+
+	context={'dest':dest,'packages':packages,'caraousel1':caraousel1,'caraousel2':caraousel2,'caraousel3':caraousel3}
+	
 	return render(request,'users/destination.html',context)
 
 def search(request):
 	name=request.POST.get('search','')
 	name=name.lstrip()
 	name=name.rstrip()
-	dest=Destination.objects.filter(city__icontains=name) | Destination.objects.filter(state__icontains=name) | Destination.objects.filter(city__icontains=name)	
+	dest=Destination.objects.filter(name__icontains=name) | Destination.objects.filter(state__icontains=name) | Destination.objects.filter(city__icontains=name)	
 	print(dest[0].id)
 	return redirect('users-destination', id=dest[0].id)
 	
@@ -84,6 +100,10 @@ def detail_package(request,package_id):
 		itinerary = Itinerary.objects.get(package=package)
 		itinerary_description = itinerary.itinerarydescription_set.all() # list of itineary days
 
+		# Images
+		images = package.destination.destinationimages_set.all()[0] #destination images object
+		package_image = images.caraousel1.url
+
 		context = {
 				'package_name':package_name,
 				'destination_name':destination_name,
@@ -97,11 +117,15 @@ def detail_package(request,package_id):
 				'price_per_room':price_per_room,
 				'inclusive':inclusive,
 				'exclusive':exclusive,
-				'itinerary_description':itinerary_description
+				'itinerary_description':itinerary_description,
+				'package_image':package_image
 			}
 
-	except expression as e:
+	except:
 		return HttpResponse('<H1> An error ocuured in Database , Please try later </H1>')
 
 
 	return render(request,'users/package.html',context)
+
+
+	reques.POST[""]

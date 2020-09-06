@@ -18,7 +18,7 @@
 
   <style>
     .header{
-      background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('{% static "images/logo1.png" %}');
+      background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url({{package_image}});
     }
   </style>
 </head>
@@ -71,8 +71,6 @@
         </div>
 
 
-        
-
         <div>
           <h2>Itenarary</h2>
           <div class="container">
@@ -85,21 +83,20 @@
                     <div class="card-header" id="{{description.day_number}}">
                       <h2 class="mb-0">
                         <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                          data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          data-target="#collapse{{description.day_number}}" aria-expanded="true" aria-controls="collapse{{description.day_number}}">
                           Day {{description.day_number}}
                         </button>
                       </h2>
                     </div>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                    <div id="collapse{{description.day_number}}" class="collapse show" aria-labelledby="heading{{description.day_number}}"
                       data-parent="#accordionExample">
                       <div class="card-body">
                        {{description.itinerary_description}}
                       </div>
                     </div>
                   </div>
-
-                  {% endfor %}
+                {% endfor %}
 
                 </div>
               </div>
@@ -108,9 +105,6 @@
         </div>
 
 
-
-        
-        
         <!-- -->
         <div>
           <h2 style="display:none">Book</h2>
