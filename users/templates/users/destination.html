@@ -55,23 +55,15 @@
         </div>
     </section>
     <section class="container mt-5">
-        <h1>Destination Name</h1>
+        <h1>{{dest.name}}</h1>
         <div class="desc" style="text-align:justify">
-            <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
-                order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum
-                of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory
-                of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and
-                1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense
-                mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan
-                in memory of his ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between
-                1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An
-                immense mausoleum of white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor
-                Shah Jahan in memory of his ...</p>
+            <p>{{dest.dtn_description}}</p>
         </div>
     </section>
     <section class="packages mt-0">
         <h1>Packages</h1>
         <div class="container">
+            {% for pack,night,price in packages %}
             <div class="col-12 col-md-12 m-3">
                 <div class="card pull-up">
                     <div class="card-content collapse show">
@@ -81,16 +73,15 @@
                                     <img src="{% static 'images/1.jpg' %}" alt="Card image cap" style="max-width:100%">
                                 </div>
                                 <div class="col-md-9 col-12 pt-2">
-                                    <h4>Delhi-Agra-Shimla</h4>
-                                    <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra
-                                        between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-                                        ...</p>
+                                    <h4>{{pack.package_name}}</h4>
+                                    <p>{{pack.description}}</p>
                                     <div class="icons">
-                                        <span><i class="fa fa-map-marker mr-2"></i>Agra</span>
-                                        <span><i class="fa fa-sun-o mr-2"></i>4 Days</span>
-                                        <span><i class="fa fa-moon-o mr-2"></i>3 Nights</span>
+                                        <span><i class="fa fa-map-marker mr-2"></i>{{pack.destination}}</span>
+                                        <span><i class="fa fa-sun-o mr-2"></i>{{pack.number_of_days}} Days</span>
+                                        
+                                        <span><i class="fa fa-moon-o mr-2"></i>{{night} nights}</span>
                                         <div class="price-dest">
-                                            <p>₹ 20,000</p>
+                                            <p>₹ {{price}}</p>
 
                                         </div>
                                         <a href="#">
@@ -104,7 +95,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
+            {% endfor %}
+            
             
         </div>
     </section>

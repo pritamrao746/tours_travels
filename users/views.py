@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect,HttpResponse
-
-
+from adminside.models import *
 from .forms import UserRegisterForm
 # Create your views here.
 
@@ -31,7 +30,22 @@ def package(request):
 	return render(request,'users/package.html')
 
 def destination(request):
-	return render(request,'users/destination.html')
+	id=2
+	dest=Destination.objects.get(id=id)
+	packs=dest.package_set.all()
+	n=packs.count()
+	nights=[]
+	price=[]
+	
+	for i in packs:
+		nights.append(i.number_of_days-1)
+		price.append(i.adult_price+i.accomodation.price_per_room)
+	
+	packages=zip(packs,nights,price)
+	
+
+	context={'dest':dest,'packages':packages}
+	return render(request,'users/destination.html',context)
 
 def search(request):
 	return render(request,'users/destination.html')
