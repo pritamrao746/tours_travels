@@ -9,5 +9,4 @@ urlpatterns = [
     path('destination/',users_view.destination,name='users-destination'),
     #path('package/<int:question_id>/', views., name='detail'),
 
-
 ]

@@ -11,7 +11,7 @@ class Destination(models.Model):
     def __str__(self):
         return f'{self.name}'
 
-class DestinationImages(models.Model):
+class ImagesDestination(models.Model):
 
     ## Change it to Image Field afterwards
     small_image = models.ImageField(default="deault_small.jpeg",upload_to="destination_img")
@@ -66,7 +66,8 @@ class Package(models.Model):
     ## Attributes
     package_name = models.CharField(max_length=200,default="NULL") # ye dalna
     adult_price = models.IntegerField()
-    child_price = models.IntegerField()   
+    child_price = models.IntegerField() 
+    description = models.TextField(default="NO DESCRIPTION ADDED")  
     inclusive = models.TextField()
     exclusive = models.TextField()
     number_of_days = models.PositiveIntegerField()
