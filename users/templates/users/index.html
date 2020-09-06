@@ -13,6 +13,15 @@
 </head>
 
 <body>
+    {% if messages %}
+    <div class="span12">
+    {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{ message|safe }}
+        </div>
+    {% endfor %}
+    </div>
+    {% endif %}
     <section class="header">
         <div class="container">
             <img src="{% static 'images/logo1.png' %}">

@@ -63,28 +63,29 @@
     <section class="packages mt-0">
         <h1>Packages</h1>
         <div class="container">
-            {% for pack,night,price in packages %}
+            {% for pack,night,price,travel in packages %}
             <div class="col-12 col-md-12 m-3">
                 <div class="card pull-up">
                     <div class="card-content collapse show">
                         <div class="card-body pt-2">
                             <div class="row">
                                 <div class="col-md-3 col-12 pt-2 text-center">
-                                    <img src="{% static 'images/1.jpg' %}" alt="Card image cap" style="max-width:100%">
+                                    <img src="{% static 'images/1.jpg' %}" alt="Card image cap" style="max-width:100%; max-height:100%">
                                 </div>
                                 <div class="col-md-9 col-12 pt-2">
                                     <h4>{{pack.package_name}}</h4>
                                     <p>{{pack.description}}</p>
+                                    <p>Travelling mode: {{travel}}</p>
                                     <div class="icons">
                                         <span><i class="fa fa-map-marker mr-2"></i>{{pack.destination}}</span>
                                         <span><i class="fa fa-sun-o mr-2"></i>{{pack.number_of_days}} Days</span>
                                         
-                                        <span><i class="fa fa-moon-o mr-2"></i>{{night} nights}</span>
+                                        <span><i class="fa fa-moon-o mr-2"></i>{{night}} nights</span>
                                         <div class="price-dest">
                                             <p>₹ {{price}}</p>
 
                                         </div>
-                                        <a href="#">
+                                        <a href="{% url 'users-detail-package' pack.id %}">
                                             <div class="price-dest">
                                                 View
                                             </div>
