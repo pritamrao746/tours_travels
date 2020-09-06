@@ -14,6 +14,7 @@ class Destination(models.Model):
 class DestinationImages(models.Model):
 
     ## Change it to Image Field afterwards
+    image_name = models.CharField(max_length=200,default=None)
     small_image = models.ImageField(default="deault_small.jpeg",upload_to="destination_img")
     caraousel1 = models.ImageField(default="deault_big.jpeg",upload_to="destination_img")
     caraousel2 = models.ImageField(default="deault_big.jpeg",upload_to="destination_img")

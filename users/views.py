@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 
 
 from .forms import UserRegisterForm
@@ -33,3 +33,5 @@ def package(request):
 def destination(request):
 	return render(request,'users/destination.html')
 
+def show_package(request,package_id):
+	return HttpResponse(f'You are looking at package with id = {package_id}')
