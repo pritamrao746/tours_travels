@@ -66,7 +66,8 @@ class Package(models.Model):
     ## Attributes
     package_name = models.CharField(max_length=200,default="NULL") # ye dalna
     adult_price = models.IntegerField()
-    child_price = models.IntegerField()   
+    child_price = models.IntegerField() 
+    description = models.TextField(default="NO DESCRIPTION ADDED")  
     inclusive = models.TextField()
     exclusive = models.TextField()
     number_of_days = models.PositiveIntegerField()
