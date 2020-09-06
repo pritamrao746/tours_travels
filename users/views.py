@@ -29,8 +29,8 @@ def home(request):
 def package(request):
 	return render(request,'users/package.html')
 
-def destination(request):
-	id=2
+def destination(request,id):
+	id=id
 	dest=Destination.objects.get(id=id)
 	packs=dest.package_set.all()
 	n=packs.count()
@@ -49,8 +49,10 @@ def destination(request):
 
 def search(request):
 	name=request.POST.get('search','')
-	dest=Destination.objects.get(city__icontains=name) 
-	# | Destination.objects.get(state__icontains=name) | Destination.objects.get(city__icontains=name)
-	print(dest)
-	return render(request,'users/destination.html')
+	name=name.lstrip()
+	name=name.rstrip()
+	dest=Destination.objects.filter(city__icontains=name) | Destination.objects.filter(state__icontains=name) | Destination.objects.filter(city__icontains=name)	
+	print(dest[0].id)
+	return redirect('users-destination', id=dest[0].id)
+	
 
