@@ -9,7 +9,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
-
+    <style>
+        .packages a{
+            color:black;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,32 +54,30 @@
         <h1>Most Recommended Packages</h1>
         <div class="container">
             <div class="row">
-                <!-- for loop starts -->
+                {% for pack,night,price,travel in packages %}
                 <div class="col-md-4">
-                    <a href="#">
+                    <a href="{% url 'users-detail-package' pack.id %}">
                         <div class="package-box animate__animated animate__bounce animate__delay-2s pull-up">
                             <div class="package-img">
                                 <img src="{% static 'images/1.jpg' %}">
                                 <div class="price">
-                                    <p>₹ 20,000</p>
+                                    <p>₹ {{price}}</p>
                                 </div>
 
                             </div>
                             <div class="package-details">
-                                <h4>Delhi-Agra-Shimla</h4>
-                                <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between
-                                    1631
-                                    and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...</p>
+                                <h4>{{pack.package_name}}</h4>
+                                
                                 <div>
-                                    <span><i class="fa fa-map-marker"></i>Agra</span>
-                                    <span><i class="fa fa-sun-o"></i>4 Days</span>
-                                    <span><i class="fa fa-moon-o"></i>3 Nights</span>
+                                    <span><i class="fa fa-map-marker"></i>{{pack.destination}}</span>
+                                    <span><i class="fa fa-sun-o"></i>{{pack.number_of_days}} Days</span>
+                                    <span><i class="fa fa-moon-o"></i>{{night}} Nights</span>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
-                <!--for loop ends-->
+                {% endfor %}
 
             </div>
         </div>
@@ -83,16 +86,16 @@
         <h1>Travelling Gallery</h1>
         <div class="container">
             <div class="row">
-                <!--for loop starts-->
+                {% for dest in dests %}
                 <div class="col-md-3">
-                    <a href="#">
+                    <a href="{% url 'users-destination' dest.id %}">
                         <div class="gallery-box">
                             <img src="{% static 'images/dest-1.png' %}">
-                            <h4>Kerala</h4>
+                            <h4>{{dest.name}}</h4>
                         </div>
                     </a>
                 </div>
-                <!--for loop ends-->
+                {% endfor %}
 
             </div>
         </div>
@@ -100,24 +103,19 @@
     <section class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <img src="{% static 'images/logo.png' %}" class="footer-logo">
                     <p>Explore different cities and relax yourself. TRAVELING – IT LEAVES YOU SPEECHLESS, THEN TURNS YOU
                         INTO A STORYTELLER.</p>
                 </div>
-                <div class="col-md-3">
-                    <h4>Pages</h4>
-                    <p>Home</p>
-                    <p>AboutUs</p>
-                    <p>ContactUs</p>
-                </div>
-                <div class="col-md-3">
+                
+                <div class="col-md-4">
                     <h4>Quick Contact</h4>
                     <p><i class="fa fa-phone"></i>9346271125</p>
                     <p><i class="fa fa-envelope"></i>hello@example.com</p>
                     <p><i class="fa fa-map-marker"></i>xyz Road, ABC</p>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h4>Follow Us:</h4>
                     <p><i class="fa fa-facebook"></i></p>
                     <p><i class="fa fa-instagram"></i></p>

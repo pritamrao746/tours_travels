@@ -26,11 +26,29 @@ def register(request):
 		
 		
 def home(request):
-	return render(request,'users/index.html')
+	dests=Destination.objects.all()[:4]
+	packs=Package.objects.all().order_by('number_of_times_booked')[:3]
+	nights=[]
+	price=[]
+	travel=[]
+	
+	for i in packs:
+		nights.append(i.number_of_days-1)
+		price.append(i.adult_price+i.accomodation.price_per_room)
+		mode=i.travel.travelling_mode
+		if(mode=="TN"):
+			travel.append("Train")
+		elif(mode=="FT"):
+			travel.append("Flight")
+		else:
+			travel.append("Bus")
+	
+	packages=zip(packs,nights,price,travel)
 
 
-def package(request):
-	return render(request,'users/package.html')
+	context={'dests':dests,'packages':packages}
+	
+	return render(request,'users/index.html',context)
 
 def destination(request,id):
 	id=id
