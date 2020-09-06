@@ -48,5 +48,9 @@ def destination(request):
 	return render(request,'users/destination.html',context)
 
 def search(request):
+	name=request.POST.get('search','')
+	dest=Destination.objects.get(city__icontains=name) 
+	# | Destination.objects.get(state__icontains=name) | Destination.objects.get(city__icontains=name)
+	print(dest)
 	return render(request,'users/destination.html')
 
