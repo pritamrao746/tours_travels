@@ -11,7 +11,7 @@ def register(request):
 		if form.is_valid():
 			form.save()
 			# print(form.cleaned_data.get('email'))
-			username=form.cleaned_data.get('')
+			# username=form.cleaned_data.get('')
 			# messages.success(request,f'{username} your account is created!!')
 			return redirect('login')
 
@@ -31,5 +31,8 @@ def package(request):
 	return render(request,'users/package.html')
 
 def destination(request):
+	return render(request,'users/destination.html')
+
+def search(request):
 	return render(request,'users/destination.html')
 

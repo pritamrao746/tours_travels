@@ -23,7 +23,8 @@
 
 
 
-        <form >
+        <form method="POST" action="{% url 'search' %}">
+            {% csrf_token %}
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search">
                 <div class="input-group-append">
@@ -39,69 +40,32 @@
         <h1>Most Recommended Packages</h1>
         <div class="container">
             <div class="row">
+                <!-- for loop starts -->
                 <div class="col-md-4">
-                    <div class="package-box animate__animated animate__bounce animate__delay-2s">
-                        <div class="package-img">
-                            <img src="{% static 'images/1.jpg' %}">
-                            <div class="price">
-                                <p>₹ 20,000</p>
-                            </div>
+                    <a href="#">
+                        <div class="package-box animate__animated animate__bounce animate__delay-2s pull-up">
+                            <div class="package-img">
+                                <img src="{% static 'images/1.jpg' %}">
+                                <div class="price">
+                                    <p>₹ 20,000</p>
+                                </div>
 
-                        </div>
-                        <div class="package-details">
-                            <h4>Delhi-Agra-Shimla</h4>
-                            <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631
-                                and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...</p>
-                            <div>
-                                <span><i class="fa fa-map-marker"></i>Agra</span>
-                                <span><i class="fa fa-sun-o"></i>4 Days</span>
-                                <span><i class="fa fa-moon-o"></i>3 Nights</span>
+                            </div>
+                            <div class="package-details">
+                                <h4>Delhi-Agra-Shimla</h4>
+                                <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631
+                                    and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...</p>
+                                <div>
+                                    <span><i class="fa fa-map-marker"></i>Agra</span>
+                                    <span><i class="fa fa-sun-o"></i>4 Days</span>
+                                    <span><i class="fa fa-moon-o"></i>3 Nights</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-md-4">
-                    <div class="package-box">
-                        <div class="package-img">
-                            <img src="{% static 'images/1.jpg' %}">
-                            <div class="price">
-                                <p>₹ 20,000</p>
-                            </div>
-
-                        </div>
-                        <div class="package-details">
-                            <h4>Delhi-Agra-Shimla</h4>
-                            <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631
-                                and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...</p>
-                            <div>
-                                <span><i class="fa fa-map-marker"></i>Agra</span>
-                                <span><i class="fa fa-sun-o"></i>4 Days</span>
-                                <span><i class="fa fa-moon-o"></i>3 Nights</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="package-box">
-                        <div class="package-img">
-                            <img src="{% static 'images/1.jpg' %}">
-                            <div class="price">
-                                <p>₹ 20,000</p>
-                            </div>
-
-                        </div>
-                        <div class="package-details">
-                            <h4>Delhi-Agra-Shimla</h4>
-                            <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631
-                                and 1648 by order of the Mughal emperor Shah Jahan in memory of his ...</p>
-                            <div>
-                                <span><i class="fa fa-map-marker"></i>Agra</span>
-                                <span><i class="fa fa-sun-o"></i>4 Days</span>
-                                <span><i class="fa fa-moon-o"></i>3 Nights</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!--for loop ends-->
+                
             </div>
         </div>
     </section>
@@ -109,30 +73,17 @@
         <h1>Travelling Gallery</h1>
         <div class="container">
             <div class="row">
+                <!--for loop starts-->
                 <div class="col-md-3">
-                    <div class="gallery-box">
-                        <img src="{% static 'images/dest-1.png' %}">
-                        <h4>Kerala</h4>
-                    </div>
+                    <a href="#">
+                        <div class="gallery-box">
+                            <img src="{% static 'images/dest-1.png' %}">
+                            <h4>Kerala</h4>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-md-3">
-                    <div class="gallery-box">
-                        <img src="{% static 'images/dest-1.png' %}">
-                        <h4>Kerala</h4>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="gallery-box">
-                        <img src="{% static 'images/dest-1.png' %}">
-                        <h4>Kerala</h4>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="gallery-box">
-                        <img src="{% static 'images/dest-1.png' %}">
-                        <h4>Kerala</h4>
-                    </div>
-                </div>
+                <!--for loop ends-->
+               
             </div>
         </div>
     </section>
