@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <p>Package = {{package_name}}</p>
+    <p>destination_name = {{destination_name}}</p>
+    <p>no_of_days = {{no_of_days}}</p>
+    <p>destination_description = {{destination_description}}</p>
+    <p>package_description = {{package_description}}</p>
+    <p>travel_mode = {{travel_mode}}</p>
+    <p>travel_price = {{travel_price}}</p>
+    <p>hotel_name = {{hotel_name}}</p>
+    <p>hotel_description = {{hotel_description}}</p>
+    <p>price_per_room = {{price_per_room}}</p>
+
+    <div><p>inclusive = {{inclusive}}</p></div>
+    
+    <div><p>exclusive = {{exclusive}}</p></div>
+
+    <div><p>itinerary_description = {{itinerary_description}}</p></div>
+
+    <div>
+        {% for desc in itinerary_description %}
+        <p> Day number = {{desc.day_number}}  </p>
+        <p> Description = {{desc.itinerary_description}} </p>
+
+        {% endfor %}
+    </div>
+    
+
+
+    {% endblock content %}
+
+</body>
+</html>

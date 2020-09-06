@@ -74,13 +74,15 @@ class Package(models.Model):
     number_of_days = models.PositiveIntegerField()
     number_of_times_booked = models.PositiveIntegerField(default=0)
 
+
+
     def __str__(self):
         return f'{self.package_name}'
 
 
 
 class Itinerary(models.Model):
-    package = models.ForeignKey(Package,on_delete=models.CASCADE,default=1)
+    package = models.OneToOneField(Package,on_delete=models.CASCADE,default=1)
     itinerary_name = models.CharField(max_length=200,default="NULL")
 
     def __str__(self):
@@ -91,6 +93,9 @@ class ItineraryDescription(models.Model):
     day_number = models.PositiveIntegerField()
     itinerary_description = models.TextField()
     
+    class Meta:
+        ordering = ['day_number']
 
+    
     def __str__(self):
         return f'{self.itinerary.itinerary_name} | Day {self.day_number}'

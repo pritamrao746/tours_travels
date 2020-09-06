@@ -29,7 +29,7 @@
       <img src="{% static 'images/logo1.png' %}">
       <button type="button" class="login-btn">Login</button>
     </div>
-    <h1>Package Name</h1>
+    <h1> {{package_name}} </h1>
   </section>
   <section class="container">
     <div class="tabbed">
@@ -42,74 +42,51 @@
       <div class="tabs">
         <div>
           <h2>Overview</h2>
-          <h4>Destination and No.of Days</h4>
-          <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order
-            of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white
-            marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
-            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
-            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
-            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
-            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...</p>
+          
+          <h4>{{destination_name}} for {{no_of_days}} days</h4>
+          
+          
+          <p> {{package_description}}</p>
+          
+          
           <h4>Travelling Details</h4>
-          <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order
-            of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white
-            marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
-            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
-            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
-            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
-            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...</p>
+          <ul>
+            <li>Travelling Mode : {{travel_mode}}</li>
+            <li>Travel Price : {{travel_price}}</li>
+          </ul>
+
+
           <h4>Accomodation Details</h4>
-          <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order
-            of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white
-            marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
-            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
-            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
-            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
-            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...</p>
+          <ul>
+            <li>Hotel Name :{{hotel_name}} </li>
+            <li>Hotel Description : {{hotel_description}}</li>
+            <li>PricePerRoom : {{price_per_room}}</li>
+          </ul>
+
+
           <h4>Inclusive</h4>
-          <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order
-            of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white
-            marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
-            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
-            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
-            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
-            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...</p>
+          <p>{{inclusive}}</p>
           <h4>Exclusive</h4>
-          <p>One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by order
-            of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of white
-            marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
-            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
-            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...One of the 7 wonders!!! An immense mausoleum of white marble, built in Agra between 1631 and 1648 by
-            order of the Mughal emperor Shah Jahan in memory of his ...One of the 7 wonders!!! An immense mausoleum of
-            white marble, built in Agra between 1631 and 1648 by order of the Mughal emperor Shah Jahan in memory of his
-            ...</p>
+          <p>{{exclusive}}</p>
         </div>
+
+
+        
+
         <div>
           <h2>Itenarary</h2>
           <div class="container">
             <div class="row">
               <div class="col-md-12 mt-3">
                 <div class="accordion" id="accordionExample">
+                 
+                  {% for description in itinerary_description %}
                   <div class="card">
-                    <div class="card-header" id="headingOne">
+                    <div class="card-header" id="{{description.day_number}}">
                       <h2 class="mb-0">
                         <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                           data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          Day 1
+                          Day {{description.day_number}}
                         </button>
                       </h2>
                     </div>
@@ -117,65 +94,24 @@
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                       data-parent="#accordionExample">
                       <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
-                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
-                        of them accusamus labore sustainable VHS.
+                       {{description.itinerary_description}}
                       </div>
                     </div>
                   </div>
-                  <div class="card">
-                    <div class="card-header" id="headingTwo">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Day 2
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                      <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
-                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
-                        of them accusamus labore sustainable VHS.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="headingThree">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          Day 3
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                      data-parent="#accordionExample">
-                      <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
-                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
-                        of them accusamus labore sustainable VHS.
-                      </div>
-                    </div>
-                  </div>
+
+                  {% endfor %}
+
                 </div>
               </div>
-
             </div>
           </div>
         </div>
+
+
+
+        
+        
+        <!-- -->
         <div>
           <h2 style="display:none">Book</h2>
           <div class="booking-form">
@@ -190,11 +126,12 @@
             </form>
           </div>
         </div>
-
+      
+      
       </div>
     </div>
+  
   </section>
-
 
 </body>
 
