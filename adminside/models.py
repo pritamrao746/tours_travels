@@ -11,7 +11,7 @@ class Destination(models.Model):
     def __str__(self):
         return f'{self.name}'
 
-class ImagesDestination(models.Model):
+class DestinationImages(models.Model):
 
     ## Change it to Image Field afterwards
     small_image = models.ImageField(default="deault_small.jpeg",upload_to="destination_img")
