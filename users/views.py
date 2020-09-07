@@ -92,7 +92,6 @@ def destination(request,id):
 	return render(request,'users/destination.html',context)
 
 def search(request):
-	
 	try:
 		name=request.POST.get('search','')
 		name=name.lstrip()
@@ -161,4 +160,20 @@ def detail_package(request,package_id):
 	return render(request,'users/package.html',context)
 
 
-	reques.POST[""]
+def bookings(request):
+	context = {}
+	if request.method == 'POST':
+		number_of_adults = request.POST['adults']
+		number_of_children =request.POST['children']
+		number_of_rooms =request.POST['rooms']
+		booking_date=request.POST['date']
+		include_travelling=request.POST.get('travel')
+
+		## Ye bas post ka id kaise lege voh nhi mila mai aisa soch rha tha karne ka 
+		HTTP_REFERER= request.META['HTTP_REFERER'][-2:]
+		
+		return render(request,'users/index.html')
+	else:
+		return redirect('users-home')
+	
+     
