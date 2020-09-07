@@ -1,22 +1,59 @@
 
 {% load crispy_forms_tags %}
+{% load static %}
+<head>
+    <title>Tours&Travels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="content-section">
-	<form method="POST">
-		{% csrf_token%}
-		<fieldset class="form-group">
-			<legend class='border-bottom mb-4'>Log in</legend>
-			{{form|crispy }}
-		</fieldset>
-		<div class="form-group">
-			<button class="btn btn-outline-info" type ='submit'>log in </button>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="{% static '/css/style.css' %}"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="{% static '/css/style.css' %}">
+<link rel="stylesheet" href="{% static '/css/pack-style.css' %}">
+
+    <style>
+        body{
+	  background-image:url('{% static "images/login-back.jpg" %}');
+	  background-size:cover;
+		background-position: center;
+		background-attachment: fixed;
+    }
+    </style>
+
+</head>
+<body>
+	<div class="booking-form" style="margin-bottom:20px;margin-top:175px;opacity:0.8;background:transparent;box-shadow:5px 5px 5px 5px black">
+		<div class="content-section">
+			<form method="POST">
+				{% csrf_token%}
+				<fieldset class="form-group">
+					<h1 style="color:white;font-weight: bolder;text-shadow: 2px 5px black;">Login</h1>
+					<div class="">
+					
+						
+						<input class="input-box"  name="username" placeholder="Username" type="text" > 
+						<input class="input-box"  name="password" placeholder="Password" type="password" > 
+					
+					</div>
+				</fieldset>
+				<div class="form-group">
+					<button class="book-btn" type ='submit'>Log In </button>
+				</div>
+			</form>
+			<div class="border-top pt-3">
+				
+				<h5 class="" style="color:white;font-weight: bolder;">
+					Need an Account? <a class="ml-2" href="/users/register">Sign up</a>
+				</h5>
+			</div>
+
 		</div>
-	</form>
-	<div class="border-top pt-3">
-		<small class="text-muted">
-			Need an Account <a class="ml-2" href=" # ">sign up</a>
-		</small>
 	</div>
+</body>
 
-</div>
 

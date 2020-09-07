@@ -1,18 +1,49 @@
 {% load crispy_forms_tags %}
-<div class="content-section">
-	<form method="POST">
-		{% csrf_token%}
-		<fieldset class="form-group">
-			<legend >Join today</legend>
-			{{form|crispy }}
-		</fieldset>
-		<div class="form-group">
-			<button class="btn btn-outline-info" type ='submit'>Sign Up</button>
+{% load static %}
+<head>
+    <title>Tours&Travels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="{% static '/css/style.css' %}"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="{% static '/css/style.css' %}">
+<link rel="stylesheet" href="{% static '/css/pack-style.css' %}">
+
+    <style>
+        body{
+	  background-image:url('{% static "images/login-back.jpg" %}');
+	  background-size:cover;
+		background-position: center;
+		background-attachment: fixed;
+    }
+    </style>
+
+</head>
+<body>
+	<div class="booking-form" style="margin-bottom:20px;margin-top:40px;opacity:0.8;background:transparent;box-shadow:5px 5px 5px 5px black">
+		<div class="content-section">
+			<form method="POST">
+				{% csrf_token%}
+				<fieldset class="form-group">
+					<h1 style="color:white;font-weight: bolder;text-shadow: 2px 5px black;">Join today</h1>
+					{{form}}
+				</fieldset>
+				<div class="form-group">
+					<button class="book-btn" type ='submit'>Sign Up</button>
+				</div>
+			</form>
+			<div class="border-top pt-3">
+				<h5 class="" style="color:white;font-weight: bolder;">
+					Already have an Account ?<a class="ml-2" href="/login">Log in</a>
+				</h5>
+			</div>
 		</div>
-	</form>
-	<div class="border-top pt-3">
-		<small class="text-muted">
-			have an Account ?<a class="ml-2" href="##">log in</a>
-		</small>
 	</div>
-</div>
+</body>
+
