@@ -13,7 +13,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-
+    <style>
+        .login-btn-dest{
+    width:100px;
+    padding:8px 0;
+    outline:none !important;
+    border:2px solid #fff;
+    border-radius: 50px;
+    background:transparent;
+    color: #fff;
+    text-align:center
+    
+}
+    </style>
 
 </head>
 
@@ -21,9 +33,13 @@
     <section class="navhead">
         <nav class="navbar navbar-dark bg-dark justify-content-between">
             <a class="navbar-brand" href="#"><img src="{% static 'images/logo1.png' %}"></a>
-            <form class="form-inline">
-                <button type="button" class="login-btn">Login</button>
-            </form>
+            
+                {% if user.is_authenticated %}
+                <a href="/logout" class="login-btn-dest">Logout</a>
+                {% else %}
+                <a href="/login" class="login-btn-dest">Login</a>
+                {% endif %}  
+           
         </nav>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
