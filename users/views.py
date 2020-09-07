@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,HttpResponse
 from django.contrib import messages
 from adminside.models import *
+from users.models import *
 from .forms import UserRegisterForm
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
@@ -128,8 +129,8 @@ def detail_package(request,package_id):
 		exclusive = package.exclusive
 
 		# Itinerary
-		itinerary = Itinerary.objects.get(package=package)
-		itinerary_description = itinerary.itinerarydescription_set.all() # list of itineary days
+		# itinerary = Itinerary.objects.get(package=package)
+		# itinerary_description = itinerary.itinerarydescription_set.all() # list of itineary days
 
 		# Images
 		images = package.destination.destinationimages_set.all()[0] #destination images object
@@ -149,7 +150,7 @@ def detail_package(request,package_id):
 				'price_per_room':price_per_room,
 				'inclusive':inclusive,
 				'exclusive':exclusive,
-				'itinerary_description':itinerary_description,
+				# 'itinerary_description':itinerary_description,
 				'package_image':package_image
 			}
 
@@ -161,17 +162,24 @@ def detail_package(request,package_id):
 
 
 def bookings(request):
+	user_id=request.user.id
 	context = {}
 	if request.method == 'POST':
+		user=user_id
+		package=request.POST['package_id']
+		package=Package.objects.get(pk=package)
 		number_of_adults = request.POST['adults']
 		number_of_children =request.POST['children']
 		number_of_rooms =request.POST['rooms']
 		booking_date=request.POST['date']
 		include_travelling=request.POST.get('travel')
-
-		## Ye bas post ka id kaise lege voh nhi mila mai aisa soch rha tha karne ka 
-		HTTP_REFERER= request.META['HTTP_REFERER'][-2:]
+		if include_travelling:
+			include_travelling=True
+		else:
+			include_travelling=False
 		
+		bookings=UserBookings(user=request.user,package=package,number_of_adults=number_of_adults,number_of_children=number_of_children,number_of_rooms=number_of_rooms,booking_date=booking_date,include_travelling=include_travelling,paid=False)
+		bookings.save()
 		return render(request,'users/index.html')
 	else:
 		return redirect('users-home')

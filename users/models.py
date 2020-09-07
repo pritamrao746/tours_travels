@@ -12,6 +12,7 @@ class UserBookings(models.Model):
     number_of_rooms = models.PositiveIntegerField(default=1)
     booking_date = models.DateTimeField(default=timezone.now)
     include_travelling = models.BooleanField(default=False)
+    paid=models.BooleanField(default=False)
 
 
     def __str__(self):
