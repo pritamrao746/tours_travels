@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <style>
         .packages a{
             color:black;
@@ -32,8 +33,8 @@
             <img src="{% static 'images/logo1.png' %}">
             <button type="button" class="login-btn">Login</button>
         </div>
-        <h1>Travel Across The Globe</h1>
-        <p>Live your dreams </p>
+        <h1 class="h"></h1>
+        
 
 
 
@@ -124,7 +125,14 @@
             </div>
         </div>
     </section>
-
+    <script>
+        
+        var options = {
+            strings: ['A journey of a thousand miles must begin with a single step.', 'To travel is to take a journey into yourself.','We travel for romance, we travel for architecture, and we travel to be lost.'],
+            typeSpeed: 60
+        };
+        var typed = new Typed('.h', options);
+    </script>
 </body>
 
 </html>

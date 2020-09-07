@@ -92,14 +92,7 @@ def destination(request,id):
 	return render(request,'users/destination.html',context)
 
 def search(request):
-	name=request.POST.get('search','')
-	name=name.lstrip()
-	name=name.rstrip()
-	dest=Destination.objects.filter(name__icontains=name) | Destination.objects.filter(state__icontains=name) | Destination.objects.filter(city__icontains=name)	
-	print(dest[0].id)
-	return redirect('users-destination', id=dest[0].id)
 	
-
 	try:
 		name=request.POST.get('search','')
 		name=name.lstrip()
