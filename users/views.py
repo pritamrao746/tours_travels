@@ -129,8 +129,8 @@ def detail_package(request,package_id):
 		exclusive = package.exclusive
 
 		# Itinerary
-		# itinerary = Itinerary.objects.get(package=package)
-		# itinerary_description = itinerary.itinerarydescription_set.all() # list of itineary days
+		itinerary = Itinerary.objects.get(package=package)
+		itinerary_description = itinerary.itinerarydescription_set.all() # list of itineary days
 
 		# Images
 		images = package.destination.destinationimages_set.all()[0] #destination images object
@@ -150,7 +150,7 @@ def detail_package(request,package_id):
 				'price_per_room':price_per_room,
 				'inclusive':inclusive,
 				'exclusive':exclusive,
-				# 'itinerary_description':itinerary_description,
+				'itinerary_description':itinerary_description,
 				'package_image':package_image
 			}
 
