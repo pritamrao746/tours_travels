@@ -10,7 +10,7 @@ class UserBookings(models.Model):
     number_of_adults = models.PositiveIntegerField(default=1)
     number_of_children = models.PositiveIntegerField(default=0)
     number_of_rooms = models.PositiveIntegerField(default=1)
-    booking_date = models.DateTimeField(default=timezone.now)
+    booking_date = models.DateField(auto_now_add=True)
     include_travelling = models.BooleanField(default=False)
     paid=models.BooleanField(default=False)
     total_amount=models.PositiveIntegerField(default=0)
