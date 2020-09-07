@@ -117,7 +117,7 @@
             
             <form method="POST" action="{% url 'users-bookings' %}">
               {% csrf_token %}
-              <input type="text" name="package_id" value="{{package.id}}">
+              <input type="hidden" name="package_id" value="{{package.id}}">
               <input type="number" class="input-box" name="adults" placeholder="No. of Adults (+12 yrs)">
               <input type="number" class="input-box" name="children" placeholder="No. of Children">
               <input type="number" class="input-box" name="rooms" placeholder="No. of Rooms">

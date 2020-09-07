@@ -175,12 +175,19 @@ def bookings(request):
 		include_travelling=request.POST.get('travel')
 		if include_travelling:
 			include_travelling=True
+			total_amount=(package.adult_price * int(number_of_adults)) + (package.child_price * int(number_of_children)) + (package.travel.price_per_person *(int(number_of_adults)+int(number_of_children)))+(package.accomodation.price_per_room*int(number_of_rooms))
+			print(total_amount)
 		else:
 			include_travelling=False
-		
-		bookings=UserBookings(user=request.user,package=package,number_of_adults=number_of_adults,number_of_children=number_of_children,number_of_rooms=number_of_rooms,booking_date=booking_date,include_travelling=include_travelling,paid=False)
+			total_amount=(package.adult_price * int(number_of_adults)) + (package.child_price * int(number_of_children)) + (package.accomodation.price_per_room*int(number_of_rooms))
+			print(total_amount)
+		bookings=UserBookings(user=request.user,package=package,number_of_adults=number_of_adults,number_of_children=number_of_children,number_of_rooms=number_of_rooms,booking_date=booking_date,include_travelling=include_travelling,paid=False,total_amount=total_amount)
 		bookings.save()
-		return render(request,'users/index.html')
+		#ye users home abhi ke liye hai..iske jagah pe payment gatway daldena
+		return redirect('users-home')
+		#redirect to payment gateway
+		#after successfull payment, save the value of paid as true in user bookings and then redirect to home page
+		#and mail the package and booking-details to user
 	else:
 		return redirect('users-home')
 	
