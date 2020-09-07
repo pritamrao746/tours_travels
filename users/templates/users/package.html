@@ -15,6 +15,7 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{% static '/css/style.css' %}">
   <link rel="stylesheet" href="{% static '/css/pack-style.css' %}">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
   <style>
     .header{
@@ -29,7 +30,8 @@
       <img src="{% static 'images/logo1.png' %}">
       <a href="/logout" class="login-btn">Logout</a>
     </div>
-    <h1> {{package_name}} </h1>
+    <h1 class="h"> {{package_name}} </h1>
+    <p id="packname" style="display:none">{{package_name}}</p>
   </section>
   <section class="container">
     <div class="tabbed">
@@ -138,6 +140,15 @@
     </div>
   
   </section>
+  <script>
+    packname=document.getElementById('packname').innerText
+    
+    var options = {
+            strings: [packname,'Welcome to...',packname],
+            typeSpeed: 60
+        };
+        var typed = new Typed('.h', options);
+  </script>
 
 </body>
 

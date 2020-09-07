@@ -106,59 +106,61 @@ def search(request):
 		
 
 def detail_package(request,package_id):
+	if request.user.is_authenticated:
+		try:
+			package = Package.objects.get(pk=package_id)
+			package_name = package.package_name
+			destination_name = package.destination.name
+			no_of_days = package.number_of_days
+			destination_description = package.destination.dtn_description
+			package_description = package.description
 
-	try:
-		package = Package.objects.get(pk=package_id)
-		package_name = package.package_name
-		destination_name = package.destination.name
-		no_of_days = package.number_of_days
-		destination_description = package.destination.dtn_description
-		package_description = package.description
+			# Travelling details
+			travel_mode = package.travel.travelling_mode
+			travel_price = package.travel.price_per_person
 
-		# Travelling details
-		travel_mode = package.travel.travelling_mode
-		travel_price = package.travel.price_per_person
+			# Accomodation Details
+			hotel_name = package.accomodation.hotel_name
+			hotel_description = package.accomodation.hotel_description
+			price_per_room = package.accomodation.price_per_room
 
-		# Accomodation Details
-		hotel_name = package.accomodation.hotel_name
-		hotel_description = package.accomodation.hotel_description
-		price_per_room = package.accomodation.price_per_room
+			# Inclusive
+			inclusive = package.inclusive
+			exclusive = package.exclusive
 
-		# Inclusive
-		inclusive = package.inclusive
-		exclusive = package.exclusive
+			# Itinerary
+			itinerary = Itinerary.objects.get(package=package)
+			itinerary_description = itinerary.itinerarydescription_set.all() # list of itineary days
 
-		# Itinerary
-		itinerary = Itinerary.objects.get(package=package)
-		itinerary_description = itinerary.itinerarydescription_set.all() # list of itineary days
+			# Images
+			images = package.destination.destinationimages_set.all()[0] #destination images object
+			package_image = images.caraousel1.url
 
-		# Images
-		images = package.destination.destinationimages_set.all()[0] #destination images object
-		package_image = images.caraousel1.url
+			context = {
+					'package':package,
+					'package_name':package_name,
+					'destination_name':destination_name,
+					'no_of_days':no_of_days,
+					'destination_description':destination_description,
+					'package_description':package_description,
+					'travel_mode':travel_mode,
+					'travel_price':travel_price,
+					'hotel_name':hotel_name,
+					'hotel_description':hotel_description,
+					'price_per_room':price_per_room,
+					'inclusive':inclusive,
+					'exclusive':exclusive,
+					'itinerary_description':itinerary_description,
+					'package_image':package_image
+				}
 
-		context = {
-				'package':package,
-				'package_name':package_name,
-				'destination_name':destination_name,
-				'no_of_days':no_of_days,
-				'destination_description':destination_description,
-				'package_description':package_description,
-				'travel_mode':travel_mode,
-				'travel_price':travel_price,
-				'hotel_name':hotel_name,
-				'hotel_description':hotel_description,
-				'price_per_room':price_per_room,
-				'inclusive':inclusive,
-				'exclusive':exclusive,
-				'itinerary_description':itinerary_description,
-				'package_image':package_image
-			}
-
-	except:
-		return HttpResponse('<H1> An error ocuured in Database , Please try later </H1>')
+		except:
+			return HttpResponse('<H1> An error ocuured in Database , Please try later </H1>')
 
 
-	return render(request,'users/package.html',context)
+		return render(request,'users/package.html',context)
+	else:
+		return redirect('login')
 
 
 def bookings(request):
