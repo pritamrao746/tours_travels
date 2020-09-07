@@ -30,7 +30,9 @@
     {% endif %}
     <section class="header">
         <div class="container">
+            <a href="/users">
             <img src="{% static 'images/logo1.png' %}">
+            </a>
             {% if user.is_authenticated %}
             <a href="/logout" class="login-btn">Logout</a>
             {% else %}
