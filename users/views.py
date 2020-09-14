@@ -13,12 +13,8 @@ def register(request):
 		
 		if form.is_valid():
 			form.save()
-			# print(form.cleaned_data.get('email'))
-			# username=form.cleaned_data.get('')
-			# messages.success(request,f'{username} your account is created!!')
 			return redirect('login')
 
-		# messages.error(request,f'invalid input')
 		return render(request,'users/register.html',{'form':form})
 
 	else:
@@ -185,11 +181,9 @@ def bookings(request):
 			print(total_amount)
 		bookings=UserBookings(user=request.user,package=package,number_of_adults=number_of_adults,number_of_children=number_of_children,number_of_rooms=number_of_rooms,booking_date=booking_date,include_travelling=include_travelling,paid=False,total_amount=total_amount)
 		bookings.save()
-		#ye users home abhi ke liye hai..iske jagah pe payment gatway daldena
+		
 		return redirect('users-home')
-		#redirect to payment gateway
-		#after successfull payment, save the value of paid as true in user bookings and then redirect to home page
-		#and mail the package and booking-details to user
+		
 	else:
 		return redirect('users-home')
 	
