@@ -1,8 +1,12 @@
+.env
 *.log
 *.pot
 *.pyc
 __pycache__
+<<<<<<< HEAD
 
+=======
+>>>>>>> d825df38f1f3b524a319e3f0eb02c827774ccb96
 media
 .vscode/*
 !.vscode/settings.json 
@@ -10,4 +14,5 @@ media
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+db.sqlite3
 
