@@ -62,12 +62,12 @@
         <h1>Most Recommended Packages</h1>
         <div class="container">
             <div class="row">
-                {% for pack,night,price,travel in packages %}
+                {% for pack,night,price,travel,img in packages %}
                 <div class="col-md-4">
                     <a href="{% url 'users-detail-package' pack.id %}">
-                        <div class="package-box animate__animated animate__bounce animate__delay-2s pull-up">
+                        <div class="package-box animate__animated animate__bounce animate__delay-5s pull-up">
                             <div class="package-img">
-                                <img src="{% static 'images/1.jpg' %}">
+                                <img src="{{img}}" height="200px">
                                 <div class="price">
                                     <p>₹ {{price}}</p>
                                 </div>
@@ -94,11 +94,11 @@
         <h1>Travelling Gallery</h1>
         <div class="container">
             <div class="row">
-                {% for dest in dests %}
+                {% for dest,img in dests %}
                 <div class="col-md-3">
                     <a href="{% url 'users-destination' dest.id %}">
                         <div class="gallery-box">
-                            <img src="{% static 'images/dest-1.png' %}">
+                            <img src="{{img}}" height="150px">
                             <h4>{{dest.name}}</h4>
                         </div>
                     </a>

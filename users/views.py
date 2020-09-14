@@ -28,7 +28,14 @@ def home(request):
 	nights=[]
 	price=[]
 	travel=[]
-	
+	dtn_image=[]
+	dtn_image_url_list=[]
+	for dest in dests:
+		dest_obj = dest.destinationimages_set.all()[0] #destination images object
+		img = dtn_image.append(dest_obj.small_image.url)
+		
+	destinations=zip(dests,dtn_image)
+
 	for i in packs:
 		nights.append(i.number_of_days-1)
 		price.append(i.adult_price+i.accomodation.price_per_room)
@@ -39,11 +46,14 @@ def home(request):
 			travel.append("Flight")
 		else:
 			travel.append("Bus")
+		
+		destination_img_object = i.destination.destinationimages_set.all()[0] #destination images object
+		img = dtn_image_url_list.append(destination_img_object.caraousel1.url)
 	
-	packages=zip(packs,nights,price,travel)
+	packages=zip(packs,nights,price,travel,dtn_image_url_list)
+	
 
-
-	context={'dests':dests,'packages':packages}
+	context={'dests':destinations,'packages':packages}
 	
 	return render(request,'users/index.html',context)
 
