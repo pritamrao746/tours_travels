@@ -7,12 +7,35 @@ from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 # Create your views here.
 
+from tours_travels import mail as mail_f
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
+from django.utils.encoding import force_bytes,force_text,DjangoUnicodeDecodeError 
+from .utils import generate_token
+from django.views import View
+
+
+
 def register(request):
 	if request.method=='POST':
 		form=UserRegisterForm(request.POST)
 		
 		if form.is_valid():
-			form.save()
+			user=form.save(commit=False)
+			user.is_active=False 
+			user.save()
+			# print(user.pk)
+			current_site=get_current_site(request)
+			# message =render_to_string(
+			
+			# )
+			uid64=urlsafe_base64_encode(force_bytes(user.pk))
+			token=generate_token.make_token(user)
+			m=f'http://{current_site}/users/activate/{uid64}/{token}'
+			mail_f.verification_mail(m,user)
+			# print(current_site,current_site.domain,uid64,token)
+			# print(user.pk,m)
 			# print(form.cleaned_data.get('email'))
 			# username=form.cleaned_data.get('')
 			# messages.success(request,f'{username} your account is created!!')
@@ -192,5 +215,26 @@ def bookings(request):
 		#and mail the package and booking-details to user
 	else:
 		return redirect('users-home')
-	
+
+
+class ActivateAccountView(View):
+	def get(self,request,uid64,token):
+		try:
+			uid=force_text(urlsafe_base64_decode(uid64))
+			user=User.objects.get(pk=uid)
+			print(uid)
+		except Exception as identifire :
+			user=None
+
+		if user is not None and generate_token.check_token(user,token):
+			user.is_active=True 
+			user.save()
+			messages.success(request, 'account activated successfully')
+
+			return redirect('login')
+		return HttpResponse('not working')
+
+
+
+
      

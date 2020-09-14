@@ -7,6 +7,6 @@ urlpatterns = [
     path('destination/<int:id>/',users_view.destination,name='users-destination'),
     path('search/',users_view.search, name="search"),
     path('package/<int:package_id>/', users_view.detail_package, name='users-detail-package'),
-    path('bookings/',users_view.bookings,name='users-bookings')
-
+    path('bookings/',users_view.bookings,name='users-bookings'),
+    path('activate/<uid64>/<token>',users_view.ActivateAccountView.as_view(),name='activate'),
 ]
